@@ -82,56 +82,36 @@ public class Hero : MonoBehaviour
         // Make sure it's not the same triggering go as last time
 
         if (go == lastTriggerGo)
-        {                                           // c
-
+        {
             return;
-
         }
 
-        lastTriggerGo = go;                                                  // d
-
-
+        lastTriggerGo = go; 
 
         if (go.tag == "Enemy")
-        {  // If the shield was triggered by an enemy
-
-            shieldLevel--;        // Decrease the level of the shield by 1
-
-            Destroy(go);          // … and Destroy the enemy                 // e
-
+        { 
+            shieldLevel--; 
+            Destroy(go);          
         }
         else
         {
-
-            print("Triggered by non-Enemy: " + go.name);                       // f
-
+            print("Triggered by non-Enemy: " + go.name);  
         }
     }
 
     public float shieldLevel
     {
-
         get
         {
-
-            return (_shieldLevel);                                          // a
-
+            return (_shieldLevel);  
         }
-
         set
         {
-
-            _shieldLevel = Mathf.Min(value, 4);                             // b
-
-            // If the shield is going to be set to less than zero
-
+            _shieldLevel = Mathf.Min(value, 4);     
             if (value < 0)
-            {                                                 // c
-
+            {    
                 Destroy(this.gameObject);
-
                 Main.S.DelayedRestart(gameRestartDelay);
-
             }
 
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Set in Inspector: Enemy")]
+    [Header("Set in Inspector: Enemy")] //
 
     public float speed = 10f;    
     public float fireRate = 0.3f; 

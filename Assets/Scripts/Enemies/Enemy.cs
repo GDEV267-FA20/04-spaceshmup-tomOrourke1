@@ -55,22 +55,56 @@ public class Enemy : MonoBehaviour
 
 
 
-    void OnCollisionEnter(Collision coll)
-    {
-        GameObject otherGO = coll.gameObject;   
+    //void OnCollisionEnter(Collision coll)
+    //{
+    //    GameObject otherGO = coll.gameObject;   
 
-        if (otherGO.tag == "ProjectileHero")
-        {    
-            Destroy(otherGO); 
-            Destroy(gameObject); 
-        }
-        else
+    //    if (otherGO.tag == "ProjectileHero")
+    //    {    
+    //        Destroy(otherGO); 
+    //        Destroy(gameObject); 
+    //    }
+    //    else
+    //    {
+    //        print("Enemy hit by non-ProjectileHero: " + otherGO.name);  
+    //    }
+
+    //}
+    private void OnCollisionEnter(Collision coll)
+    {
+        GameObject otherGO = coll.gameObject;
+
+        switch(otherGO.tag)
         {
-            print("Enemy hit by non-ProjectileHero: " + otherGO.name);  
+            case "ProjectileHero":
+                Projectile p = otherGO.GetComponent<Projectile>();
+
+                if(!bndCheck.isOnScreen) // dont damage enemy off screen
+                {
+                    Destroy(otherGO);
+                    break;
+                }
+
+                //hurt enemy // get the damage amount from the main
+                health -= Main.GetWeaponDefinition(p.type).damageOnHit;
+
+                if(health <= 0)
+                {
+                    //destroy this enemy
+                    Destroy(this.gameObject);
+                }
+                Destroy(otherGO);
+                break;
+            default:
+                print("Enemy hit by non-ProjectileHero: " + otherGO.name);
+                break;
+
         }
+
+
+
 
     }
-
 
 
 

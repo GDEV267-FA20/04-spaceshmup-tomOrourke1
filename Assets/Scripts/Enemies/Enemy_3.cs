@@ -50,22 +50,22 @@ public class Enemy_3 : Enemy
     public override void Move()
     {
 
+        // bezier curves work based on a u balue between 0 & 1
+        float u = (Time.time - birthTime) / lifeTime;
 
+        if (u > 1)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 
+        //Interpolate
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Vector3 p01, p12;
+         u = u - 0.2f * Mathf.Sin(u * Mathf.PI * 2);
+        p01 = (1 - u) * points[0] + u * points[1];
+        p12 = (1 - u) * points[1] + u * points[2];
+        pos = (1 - u) * p01 + u * p12;
 
 
     }

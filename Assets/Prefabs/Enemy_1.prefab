@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 6987350912209122632}
   - component: {fileID: 6987350912209122633}
   - component: {fileID: 6378830527235434924}
-  - component: {fileID: -6177176572250894469}
+  - component: {fileID: 6944262577451654748}
   m_Layer: 10
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: -2.5
-  keepOnScreen: 1
+  keepOnScreen: 0
   isOnScreen: 1
   camWidth: 0
   camHeight: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   offLeft: 0
   offUp: 0
   offDown: 0
---- !u!114 &-6177176572250894469
+--- !u!114 &6944262577451654748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,10 +271,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6987350912209122639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc64e1d6996e13c43800f09c78fed766, type: 3}
+  m_Script: {fileID: 11500000, guid: dfd44cd4c3a19444f9d5a36d07d2917f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   fireRate: 0.3
   health: 10
   score: 100
+  waveFrequency: 2
+  waveWidth: 4
+  waveRotY: 45

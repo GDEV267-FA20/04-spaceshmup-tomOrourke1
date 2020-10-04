@@ -810,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333827284213059730, guid: 15e2256e5f84eb046b34b23f97f17afc, type: 3}
       propertyPath: def.type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1333827284213059730, guid: 15e2256e5f84eb046b34b23f97f17afc, type: 3}
       propertyPath: def.projectilePrefab
@@ -838,6 +838,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333827284213059730, guid: 15e2256e5f84eb046b34b23f97f17afc, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333827284213059730, guid: 15e2256e5f84eb046b34b23f97f17afc, type: 3}
+      propertyPath: _type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1662194371807843255, guid: 15e2256e5f84eb046b34b23f97f17afc, type: 3}

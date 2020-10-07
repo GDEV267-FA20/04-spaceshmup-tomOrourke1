@@ -12,9 +12,26 @@ public class Enemy : MonoBehaviour
     public int score = 100;
     protected BoundsCheck bndCheck;
 
+    public float showDamageDuration = 0.1f;
+
+    [Header("Set Dynamically: Enemy")]
+    public Color[] orininalColors;
+    public Material[] materials;
+    public bool showingDamage = false;
+    public float damageDoneTime;
+    public bool notifiedOfDestruction = false;
+
     private void Awake()
     {
         bndCheck = GetComponent<BoundsCheck>();
+
+        //get mat and chillers
+        materials = Utils.GetAllMaterials(gameObject);
+        orininalColors = new Color[materials.Length];
+        for (int i = 0; i < materials.Length; i++)
+        {
+            orininalColors[i] = materials[i].color;
+        }
     }
     public Vector3 pos
     {    
@@ -33,6 +50,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (showingDamage && Time.time > damageDoneTime)
+        {
+            UnShowDamage();
+        }
+
 
         if (bndCheck != null && bndCheck.offDown)
         {
@@ -84,7 +107,7 @@ public class Enemy : MonoBehaviour
                     Destroy(otherGO);
                     break;
                 }
-
+                ShowDamage();
                 //hurt enemy // get the damage amount from the main
                 health -= Main.GetWeaponDefinition(p.type).damageOnHit;
 
@@ -106,7 +129,24 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void ShowDamage()
+    {
+        foreach(Material m in materials)
+        {
+            m.color = Color.red;
+        }
+        showingDamage = true;
+        damageDoneTime = Time.time + showDamageDuration;
+    }
 
+    void UnShowDamage()
+    {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].color = orininalColors[i];
+        }
+        showingDamage = false;
+    }
 
 
 

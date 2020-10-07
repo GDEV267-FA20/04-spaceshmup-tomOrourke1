@@ -17,6 +17,7 @@ public class Hero : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
 
+    public Weapon[] weapons;
 
     [Header("Set Dynamically")]
     //public float shieldLevel = 1;
@@ -30,7 +31,7 @@ public class Hero : MonoBehaviour
     //create a weponfire delegate field named firedelegate.
     public WeaponFireDelegate fireDelegate;
 
-    private void Awake()
+    private void Start()
     {
         if (S == null)
         {
@@ -41,7 +42,11 @@ public class Hero : MonoBehaviour
             Debug.LogError("Hero.Awake() - Attempted to assieng second Hero.S!");
         }
 
-//        fireDelegate += TempFire;
+        //        fireDelegate += TempFire;
+
+
+        ClearWeapons();
+        weapons[0].SetType(WeaponType.blaster);
     }
 
 
@@ -127,10 +132,25 @@ public class Hero : MonoBehaviour
         PowerUp pu = go.GetComponent<PowerUp>();
         switch (pu.type)
         {
-
-            //leave empty?
-
-
+            case WeaponType.shield:
+                shieldLevel++;
+                break;
+            default:
+                if(pu.type == weapons[0].type)
+                {
+                    Weapon w = GetEmptyWeaponSlot();
+                    if (w != null)
+                    {
+                        w.SetType(pu.type);
+                    }
+                    
+                }
+                else
+                {
+                    ClearWeapons();
+                    weapons[0].SetType(pu.type);
+                }
+                break;
 
         }
         pu.AbsorbedBy(this.gameObject);
@@ -153,4 +173,30 @@ public class Hero : MonoBehaviour
         }
 
     }
+
+
+    Weapon GetEmptyWeaponSlot()
+    {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (weapons[i].type == WeaponType.none)
+            {
+                return weapons[i];
+            }
+        }
+        return (null);
+    }
+
+    void ClearWeapons()
+    {
+        foreach(Weapon w in weapons)
+        {
+            w.SetType(WeaponType.none);
+        }
+    }
+
+
+
+
+
 }

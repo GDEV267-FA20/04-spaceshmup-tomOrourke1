@@ -42,23 +42,27 @@ public class ProjectileHoming : Projectile
 
         for (int i = 0; i < enemies.Length; i++)
         {
-            if (!prevBool)
+            if(enemies[i].transform.position.y > transform.position.y)
             {
-                target = enemies[i];
-                previous = target;
-                prevBool = true;
-            }
-            else
-            {
-                target = enemies[i];
-
-                if (target.transform.position.magnitude > previous.transform.position.magnitude)
+                if (!prevBool)
                 {
-                    target = previous;
+                    target = enemies[i];
+                    previous = target;
+                    prevBool = true;
                 }
+                else
+                {
+                    target = enemies[i];
+
+                    if (target.transform.position.magnitude > previous.transform.position.magnitude)
+                    {
+                        target = previous;
+                    }
 
 
+                }
             }
+            
 
         }
 

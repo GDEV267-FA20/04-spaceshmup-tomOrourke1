@@ -440,11 +440,11 @@ MonoBehaviour:
   - type: 7
     letter: BB
     color: {r: 1, g: 0, b: 0.8991847, a: 1}
-    projectilePrefab: {fileID: 3435275773975607915, guid: b033e0cb837110b4c8c511cf3832040e, type: 3}
+    projectilePrefab: {fileID: 3435275773975607915, guid: 32c339ca2d4ad9245a8ea2cf067d4057, type: 3}
     projectileColor: {r: 1, g: 0, b: 0.8980393, a: 1}
-    damageOnHit: 0.5
+    damageOnHit: 0.8
     continuousDamage: 0
-    delayBetweenSHots: 0.01
+    delayBetweenSHots: 0.1
     velocity: 50
   prefabPowerUp: {fileID: 7845047202656221454, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
   powerUpFrequency: 0100000001000000020000000600000007000000

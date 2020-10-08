@@ -38,6 +38,13 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        HomeIn();
+    }
+
+    protected virtual void HomeIn()
+    {
+
     }
 
     ///<summary>

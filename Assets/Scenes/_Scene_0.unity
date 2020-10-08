@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &11379715
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221450, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221451, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: type
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845047202656221454, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
+      propertyPath: m_Name
+      value: PowerUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
 --- !u!1 &440100620
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,10 +412,10 @@ MonoBehaviour:
   weaponDefinitions:
   - type: 1
     letter: B
-    color: {r: 1, g: 1, b: 1, a: 1}
+    color: {r: 1, g: 0.3443396, b: 0.3443396, a: 1}
     projectilePrefab: {fileID: 3435275773975607915, guid: b033e0cb837110b4c8c511cf3832040e, type: 3}
-    projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 1
+    projectileColor: {r: 1, g: 0.13679248, b: 0.13679248, a: 1}
+    damageOnHit: 2
     continuousDamage: 0
     delayBetweenSHots: 0.2
     velocity: 50
@@ -363,7 +424,7 @@ MonoBehaviour:
     color: {r: 0, g: 0.6256573, b: 1, a: 1}
     projectilePrefab: {fileID: 3435275773975607915, guid: b033e0cb837110b4c8c511cf3832040e, type: 3}
     projectileColor: {r: 0, g: 0.627451, b: 1, a: 1}
-    damageOnHit: 0
+    damageOnHit: 1
     continuousDamage: 0
     delayBetweenSHots: 0.4
     velocity: 50
@@ -376,8 +437,17 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenSHots: 0
     velocity: 0
+  - type: 7
+    letter: BB
+    color: {r: 1, g: 0, b: 0.8991847, a: 1}
+    projectilePrefab: {fileID: 3435275773975607915, guid: b033e0cb837110b4c8c511cf3832040e, type: 3}
+    projectileColor: {r: 1, g: 0, b: 0.8980393, a: 1}
+    damageOnHit: 0.5
+    continuousDamage: 0
+    delayBetweenSHots: 0.01
+    velocity: 50
   prefabPowerUp: {fileID: 7845047202656221454, guid: ef357c6e86bc7c344827ee089b2df0a6, type: 3}
-  powerUpFrequency: 01000000010000000200000006000000
+  powerUpFrequency: 0100000001000000020000000600000007000000
 --- !u!114 &642965017
 MonoBehaviour:
   m_ObjectHideFlags: 0

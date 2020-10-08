@@ -130,9 +130,12 @@ public class Hero : MonoBehaviour
     public void AbsorbPowerUp(GameObject go)
     {
         PowerUp pu = go.GetComponent<PowerUp>();
+
+        Debug.Log("AbsorbedPowerup\n\n: " + pu.type + " \n");
         switch (pu.type)
         {
             case WeaponType.shield:
+                Debug.Log("AbsorbPowerUP == SHIELD: " + pu.type);
                 shieldLevel++;
                 break;
             default:

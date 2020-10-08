@@ -18,7 +18,8 @@ public enum WeaponType
     phaser, //NI
     missile, //NI
     laser, //NI
-    shield
+    shield,
+    bigBeam
 }
 /// <summary>
 /// THe weapon definition class allows you to set the properties of a specific weapon in the inspector. the main class has
@@ -134,6 +135,10 @@ public class Weapon : MonoBehaviour
                 p = MakeProjectile();     // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
+                break;
+            case WeaponType.bigBeam:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
                 break;
 
         }
